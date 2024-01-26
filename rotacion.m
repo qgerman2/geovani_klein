@@ -26,5 +26,7 @@ theta = deg2rad(tbl.theta);
 psi = deg2rad(tbl.psi1);
 
 i = 15000;
-
-[x, y, z] = body_a_inercial(body_vx(i), body_vy(i), body_vz(i), phi(i), theta(i), psi(i))
+Q = body_a_inercial_matriz(phi(i), theta(i), psi(i));
+v_body = [body_vx(i); body_vy(i); body_vz(i)];
+Q * v_body
+v_inercial = [inertial_vx(i); inertial_vy(i); inertial_vz(i)]
